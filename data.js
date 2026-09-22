@@ -258,7 +258,7 @@ var UPDATES = [
     body: "The proactive trigger engine now weighs whether an interruption is worth it before it speaks, and respects quiet hours. Silence turned out to be the harder behaviour to get right."
   },
   {
-    date: "2026-07-02",
+    date: "2026-09-08",
     title: "Agent rooms reach regression coverage",
     body: "The authorisation layer for shared agent rooms is under regression tests, so enrolment and membership changes cannot quietly widen access."
   },
