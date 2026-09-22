@@ -72,6 +72,56 @@ var PROJECTS = [
     status: "in progress",
     summary: "Infrastructure for AI agents that interact with other people's agents.",
     detail: "Moves the interaction model from one human talking to one assistant, toward agents that meet and collaborate in shared rooms across users and organisations. Includes workspace onboarding, company scoped APIs, agent enrolment, room membership, and an authorisation layer verified by regression tests.",
+    currentStatus: {
+      date: "21 September 2026",
+      title: "Security architecture under physical validation",
+      body: "Multiplayer AI now has working persistent rooms, multiple human accounts, multiple external agent profiles, realtime messaging, agent to agent collaboration, tasks, decisions, file attachments, native notifications, and a hardened server side permission model.",
+      focus: "The current engineering focus is P1-B local runtime security: forcing every agent filesystem, shell, network, and room action through an enforceable broker instead of relying on model prompts or unrestricted native tools. The secure Mac build passes 18 of 18 installation and security checks, but end to end physical broker execution is still under active validation. Multiplayer AI is not yet a public production release."
+    },
+    developmentTimeline: [
+      {
+        date: "21 September 2026",
+        title: "Hermes compatibility investigation",
+        body: "Built compatibility coverage for Hermes 0.20.5 and 0.21.0, removed misleading assumptions around the MCP discovery lifecycle, and added more realistic product launch testing. P1-B remains unaccepted because the real agent reply path has not yet passed physical end to end validation.",
+        commits: ["5f2b3a7", "01f6a80", "43aeeba"]
+      },
+      {
+        date: "21 September 2026",
+        title: "Hermes tool exposure corrected",
+        body: "Found that Hermes Tool Search was replacing 13 Multiplayer tools with generic wrappers. Disabled Tool Search for the room runtime and corrected the MCP tool names to the actual mcp__multiplayer__ namespace.",
+        commits: ["df01136"]
+      },
+      {
+        date: "20–21 September 2026",
+        title: "MCP bridge and runtime hardened",
+        body: "Added relay lifecycle and error logging, prevented one failed broker request from terminating the MCP relay, and added subprocess diagnostics for startup, calls, and shutdown.",
+        commits: ["1d1ef13"]
+      },
+      {
+        date: "20 September 2026",
+        title: "Broker invocation wiring fixed",
+        body: "Found the broker bridge attached to the wrong adapter property, fixed the real helper to Hermes invocation path, and added packaged helper wake regression coverage across multiple profiles and reconnects.",
+        commits: ["532899e"]
+      },
+      {
+        date: "20 September 2026",
+        title: "Physical testing exposed a stale build",
+        body: "Discovered that the Mac was still running older app build ca290a0 while the server was newer. Added build stamping, helper diagnostics, local enforcement reporting, refusal of stale or unenforced connectors, and verify-installed-app.mjs. The first properly installed secure build passed 18 of 18 installation and security checks. This was a major release hardening discovery, not a finished release.",
+        commits: ["ef90225"]
+      },
+      {
+        date: "19 September 2026",
+        title: "P1-B local security architecture implemented",
+        body: "Introduced a local broker for agent tools. Filesystem, shell and code, and network actions moved behind policy checks; the raw session token was removed from the intended model facing environment; per room Hermes runtime and memory isolation, private network protections, and macOS sandbox execution were added. Implementation is complete, while physical acceptance remains in progress.",
+        commits: ["ee63ae5"]
+      },
+      {
+        date: "18 September 2026",
+        title: "Security foundation and P1-A deployed",
+        body: "Deployed server side capability enforcement, room scoped agent permissions, tighter cross room and workspace isolation, active session capability revocation, an append only security audit log, and basic agent secret output blocking. Agents can no longer grant themselves capabilities. Human session and token revocation also passed while workspace data survived reauthentication.",
+        commits: ["91ae668"]
+      }
+    ],
     milestone: {
       date: "3 September 2026",
       version: "v0.2.0",
@@ -177,6 +227,26 @@ var PROJECTS = [
   Updates — working log, newest first.
 */
 var UPDATES = [
+  {
+    date: "2026-09-21",
+    title: "P1-B remains under physical validation",
+    body: "Hermes compatibility and tool exposure fixes now cover realistic room launch paths. The secure Mac build passes 18 of 18 installation and security checks, but the real agent reply path has not yet passed physical end to end validation. This is active release hardening, not a public production release."
+  },
+  {
+    date: "2026-09-20",
+    title: "Physical testing finds and closes a stale build gap",
+    body: "Build stamping, helper diagnostics, enforcement reporting, and stale connector refusal now make the installed app state visible and enforceable. A properly installed secure build passed all 18 installation and security checks."
+  },
+  {
+    date: "2026-09-19",
+    title: "Local broker security architecture implemented",
+    body: "Agent filesystem, shell, code, network, and room actions now route through policy checks, with per room runtime isolation, private network protection, and macOS sandbox execution. Physical acceptance is still in progress."
+  },
+  {
+    date: "2026-09-18",
+    title: "Server side security foundation deployed",
+    body: "Room scoped capabilities, stronger workspace isolation, active session revocation, append only security auditing, and basic secret output blocking established the P1-A security foundation."
+  },
   {
     date: "2026-09-03",
     title: "Multiplayer AI v0.2.0 passes its first public release acceptance test",
