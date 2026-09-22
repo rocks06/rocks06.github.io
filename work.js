@@ -5,7 +5,8 @@
   function el(tag, className, text) { var node = document.createElement(tag); if (className) node.className = className; if (text != null) node.textContent = text; return node; }
   function card(project, index) {
     var link = el("a", "project-card reveal"); link.href = "project.html?id=" + encodeURIComponent(project.id); link.style.setProperty("--card-accent", accents[index % accents.length]);
-    var top = el("div", "project-card__top"); top.appendChild(el("span", "status status--" + project.status.replace(/\s+/g, "-"), project.status)); top.appendChild(el("span", null, String(index + 1).padStart(2, "0"))); link.appendChild(top);
+    var labels = { live: "active", "in progress": "active build", prototype: "experiment", archived: "archived" };
+    var top = el("div", "project-card__top"); top.appendChild(el("span", "status status--" + project.status.replace(/\s+/g, "-"), labels[project.status] || project.status)); top.appendChild(el("span", null, String(index + 1).padStart(2, "0"))); link.appendChild(top);
     var visual = el("div", "project-card__visual"); visual.appendChild(el("div", "project-card__glyph", glyphs[project.id] || project.title.slice(0, 2).toUpperCase())); link.appendChild(visual);
     var body = el("div", "project-card__body"); body.appendChild(el("h3", null, project.title)); body.appendChild(el("p", null, project.summary)); link.appendChild(body);
     var footer = el("div", "project-card__footer"); footer.appendChild(el("span", null, project.date)); footer.appendChild(el("span", "project-card__arrow", "↗")); link.appendChild(footer); return link;

@@ -28,6 +28,19 @@ var SITE = {
   ]
 };
 
+var NOW = [
+  { label: "Currently building", value: "Multiplayer AI", detail: "A persistent workspace where people and independently operated agents collaborate under explicit permissions.", href: "project.html?id=multiplayer-ai-agents" },
+  { label: "Currently exploring", value: "Multi agent coordination and computer vision", detail: "How autonomous systems share context, use tools safely, and understand the physical world.", href: "work.html" },
+  { label: "Currently studying", value: "Computer Science and cybersecurity", detail: "Barry University in Miami, with an emphasis on the systems beneath reliable AI products.", href: "about.html" }
+];
+
+var MILESTONES = [
+  { date: "2024", title: "Moved from Italy to Miami", body: "Started studying Computer Science at Barry University and began building independently in a new country." },
+  { date: "2025", title: "From prototypes to products", body: "Built AI Closet, ÉLAN, spatial computing experiments, and an AI compliance prototype." },
+  { date: "February 2026", title: "Built at the Inspire Hackathon", body: "Created the Mealo prototype with the Barry University AI Center." },
+  { date: "September 2026", title: "First externally installable release", body: "Multiplayer AI v0.2.0 passed signing, notarisation, stapling, and Gatekeeper acceptance on physical Macs." }
+];
+
 /*
   Story — chronological beats with full narrative.
 */
@@ -61,6 +74,10 @@ var PROJECTS = [
     status: "live",
     summary: "Voice guided repair assistance on iOS. Point a phone camera at a machine, describe the problem out loud, and get a diagnosis and step by step guidance without touching the screen.",
     detail: "The app analyses the live camera feed and answers in a natural voice, with overlays that point at the specific component being discussed. Interruption is handled the way a person handles it: start speaking and it stops and listens. Built for people whose hands are occupied with the equipment in front of them. An enterprise edition ships with deep knowledge of a specific equipment catalogue, including failure modes, safety warnings, part references, and expected repair times, so it answers like a technician who already knows the plant.",
+    problem: "Field technicians often need manuals, search, or remote experts while their hands and attention are already occupied by the equipment.",
+    proof: "A working iOS system combines live camera analysis, voice input, spoken guidance, interruption handling, and component level visual overlays.",
+    challenge: "Keep the interaction fast and grounded while coordinating vision, speech, turn taking, and equipment specific knowledge.",
+    outcome: "Active development for industrial equipment and field service use, including a catalogue aware enterprise edition.",
     stack: ["React", "Capacitor", "iOS", "Gemini 2.5 Flash vision and reasoning", "Full duplex speech synthesis", "Voice activity detection for turn taking"],
     client: null,
     clientNote: "A US industrial equipment distributor"
@@ -72,6 +89,10 @@ var PROJECTS = [
     status: "in progress",
     summary: "Infrastructure for AI agents that interact with other people's agents.",
     detail: "Moves the interaction model from one human talking to one assistant, toward agents that meet and collaborate in shared rooms across users and organisations. Includes workspace onboarding, company scoped APIs, agent enrolment, room membership, and an authorisation layer verified by regression tests.",
+    problem: "AI agents are usually isolated inside single user products and cannot safely collaborate with agents owned by other people or companies.",
+    proof: "Persistent rooms, multiple human accounts, external agent profiles, realtime messaging, tasks, decisions, file attachments, notifications, and server enforced permissions are working.",
+    challenge: "Force every local agent action through enforceable policy boundaries without depending on prompts or unrestricted native tools.",
+    outcome: "The private v0.2.0 engineering release is signed, notarised, and Gatekeeper accepted. P1-B physical end to end validation remains in progress.",
     currentStatus: {
       date: "21 September 2026",
       title: "Security architecture under physical validation",
@@ -140,6 +161,10 @@ var PROJECTS = [
     status: "live",
     summary: "A wearable assistant running on Ray-Ban Display glasses.",
     detail: "Three layers: glasses, phone, and a local machine that does the reasoning. Reads calendars, tracks biometrics from a connected watch, and runs a proactive trigger engine that decides when it is worth speaking without being asked, with quiet hours respected. Conversation is handled by a state machine covering wake words and natural pauses rather than push to talk.",
+    problem: "A wearable assistant becomes distracting if it waits for constant commands or interrupts without understanding context.",
+    proof: "The system connects glasses, phone, and local reasoning with calendar context, watch biometrics, wake words, natural pauses, and quiet hours.",
+    challenge: "Decide when assistance is valuable enough to interrupt and when silence is the better product behaviour.",
+    outcome: "An operating wearable assistant prototype with proactive triggers and conversation state management.",
     stack: ["Meta Ray-Ban Display SDK", "Python service layer", "Speech recognition and synthesis", "Calendar and health integrations"],
     client: null,
     clientNote: null
@@ -151,6 +176,10 @@ var PROJECTS = [
     status: "live",
     summary: "An automated trading system for prediction markets.",
     detail: "Started as a machine learning research project on market microstructure with a feature set covering spread, order book imbalance, momentum, volatility, and time to expiry, plus backtesting that accounts for fees and slippage. Became a persistent operational engine with position tracking, profit and loss calculation, and risk controls including exposure limits and a kill switch. Ran in simulation for an extended period before any capital was committed.",
+    problem: "Prediction market signals are easy to overestimate when testing ignores execution costs, changing liquidity, and operational risk.",
+    proof: "The engine includes calibrated models, fee and slippage aware backtesting, position tracking, exposure limits, and a kill switch.",
+    challenge: "Translate research results into a persistent system that behaves predictably when market conditions and data quality change.",
+    outcome: "Moved from extended simulation into limited live operation under explicit risk controls, without publishing performance claims.",
     stack: ["Python", "Logistic regression and gradient boosting", "Probability calibration", "Process supervision", "Dashboard and API"],
     client: null,
     clientNote: null
@@ -162,6 +191,10 @@ var PROJECTS = [
     status: "in progress",
     summary: "Finds businesses with weak digital infrastructure and turns them into qualified leads.",
     detail: "Scrapes business listings, analyses each website for security, speed, mobile behaviour, metadata, and booking or commerce tooling, scores the result, then generates outreach referencing the specific weakness found. Includes duplicate prevention and send throttling.",
+    problem: "Generic lead lists do not explain why a business needs help, which makes outreach noisy and difficult to prioritise.",
+    proof: "The pipeline collects business data, audits websites, scores concrete weaknesses, prevents duplicates, and prepares evidence based outreach.",
+    challenge: "Keep automated research accurate and useful without turning outreach into unbounded or repetitive automation.",
+    outcome: "An in progress lead qualification system with throttling and duplicate prevention built into the workflow.",
     stack: ["Browser automation", "Supabase", "Page performance analysis", "Generated outreach"],
     client: null,
     clientNote: null
@@ -173,6 +206,10 @@ var PROJECTS = [
     status: "live",
     summary: "Personalised meal planning built at the Barry University Inspire Hackathon with the AI Center.",
     detail: "Preferences and constraints feed intelligent filtering to generate curated meal options. Role: user experience and interface design through to working prototype.",
+    problem: "Meal discovery becomes frustrating when menus do not reflect a person's preferences, dietary constraints, or immediate context.",
+    proof: "A working hackathon prototype turns user constraints into filtered and curated meal options.",
+    challenge: "Reduce a broad recommendation problem into a clear interface that can be built and demonstrated within a hackathon timeline.",
+    outcome: "Completed with the Barry University AI Center at the Inspire Hackathon, with ownership across user experience and prototyping.",
     stack: ["Figma", "Rapid prototyping"],
     client: null,
     clientNote: null
@@ -184,6 +221,10 @@ var PROJECTS = [
     status: "prototype",
     summary: "A continuous AI compliance layer for smaller companies.",
     detail: "Monitors regulation, determines what applies to a given company, maps rules to operations, detects gaps, and generates the evidence record. The strategic insight was that evidence logging matters more than gap detection: companies increasingly have to prove compliance rather than claim it. Backend prototype with an evidence submission API and a basic interface.",
+    problem: "Smaller companies struggle to determine which rules apply and to preserve evidence that compliance work actually happened.",
+    proof: "The backend prototype maps regulations to operations, records evidence submissions, identifies gaps, and exposes a basic review interface.",
+    challenge: "Treat evidence history as a first class system rather than producing an untraceable compliance answer.",
+    outcome: "A completed product and backend experiment that established evidence logging as the central design principle.",
     stack: ["Node.js", "Express", "PostgreSQL"],
     client: null,
     clientNote: null
@@ -195,6 +236,10 @@ var PROJECTS = [
     status: "prototype",
     summary: "An AI fashion assistant for spatial computing.",
     detail: "A user stands at an ordinary mirror wearing a headset. The system detects the body, understands the user's style, and overlays garments in real time so the mirror shows a virtual outfit. The intelligence lives in the wearable, not in an expensive smart mirror. Included research into embedding a small language model directly on device rather than depending on an external process.",
+    problem: "Virtual styling experiences often require specialised displays instead of working with the mirrors and spaces people already have.",
+    proof: "The prototype direction combines body tracking, real time garment overlays, style context, and on device model research for visionOS.",
+    challenge: "Align garments convincingly in space while keeping the experience private, responsive, and wearable first.",
+    outcome: "An archived spatial computing experiment that extended the AI Closet idea from recommendation into embodied interaction.",
     stack: ["visionOS", "Body tracking", "AR overlay", "On device model research"],
     client: null,
     clientNote: null
@@ -206,6 +251,10 @@ var PROJECTS = [
     status: "prototype",
     summary: "Makes a wardrobe someone already owns searchable, and builds outfits from it.",
     detail: "Photograph a garment, and the pipeline removes the background, isolates the item, classifies it, and files it in a wardrobe database. Recommendations then combine local weather, occasion, and a chosen style. It recommends from what you have rather than pushing new purchases. This work evolved into ÉLAN.",
+    problem: "Most fashion recommendation products optimise for selling more clothes instead of helping people use what they already own.",
+    proof: "The prototype removes garment backgrounds, classifies items, stores a personal wardrobe, and combines weather, occasion, and style for recommendations.",
+    challenge: "Turn inconsistent personal photos into structured wardrobe data that remains useful for downstream recommendations.",
+    outcome: "A completed prototype whose ideas evolved into the later ÉLAN spatial computing concept.",
     stack: ["SwiftUI", "Supabase", "Vision model classification"],
     client: null,
     clientNote: null
@@ -217,6 +266,10 @@ var PROJECTS = [
     status: "archived",
     summary: "Exploratory prototypes testing where AR and AI create experiences a phone cannot.",
     detail: "Immersive museums, an XR personal trainer, an AR shopping assistant, and a future city simulator.",
+    problem: "Many AR concepts recreate flat screen interactions without using space, embodiment, or environmental context meaningfully.",
+    proof: "A set of concept prototypes explored immersive museums, personal training, shopping assistance, and future city simulation.",
+    challenge: "Identify which experiences genuinely benefit from spatial computing instead of adding novelty without utility.",
+    outcome: "Archived research that informed later work in wearable assistance, computer vision, and spatial product design.",
     stack: ["XR prototyping", "3D"],
     client: null,
     clientNote: null

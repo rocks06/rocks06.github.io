@@ -9,13 +9,32 @@
     if (!project) { root.appendChild(el("h1", null, "Project not found.")); return; }
     document.title = project.title + " — Rocco Donadon";
 
+    var labels = { live: "active", "in progress": "active build", prototype: "experiment", archived: "archived" };
+    var displayStatus = labels[project.status] || project.status;
     var hero = el("div", "project-hero reveal");
-    var heading = el("div"); heading.appendChild(el("p", "eyebrow", "Selected work / " + project.status)); heading.appendChild(el("h1", null, project.title)); heading.appendChild(el("p", "project-hero__summary", project.summary)); hero.appendChild(heading);
-    var meta = el("div", "project-meta"); addMeta(meta, "Status", project.status); addMeta(meta, "Timeline", project.date); addMeta(meta, "Role", "Founder · Product · Engineering"); if (project.clientNote) addMeta(meta, "Context", project.clientNote); hero.appendChild(meta); root.appendChild(hero);
+    var heading = el("div"); heading.appendChild(el("p", "eyebrow", "Selected work / " + displayStatus)); heading.appendChild(el("h1", null, project.title)); heading.appendChild(el("p", "project-hero__summary", project.summary)); hero.appendChild(heading);
+    var meta = el("div", "project-meta"); addMeta(meta, "Status", displayStatus); addMeta(meta, "Timeline", project.date); addMeta(meta, "Role", "Founder · Product · Engineering"); if (project.clientNote) addMeta(meta, "Context", project.clientNote); hero.appendChild(meta); root.appendChild(hero);
 
     var body = el("section", "project-body reveal"); body.appendChild(el("p", "project-body__label", "The system"));
     var copy = el("div"); copy.appendChild(el("p", "project-body__copy", project.detail));
     var stack = el("div", "project-stack"); project.stack.forEach(function (item) { stack.appendChild(el("span", null, item)); }); copy.appendChild(stack); body.appendChild(copy); root.appendChild(body);
+
+    if (project.problem && project.proof && project.challenge && project.outcome) {
+      var caseStudy = el("section", "case-study reveal");
+      [
+        { label: "Problem", title: "The constraint", body: project.problem },
+        { label: "Working proof", title: "What exists", body: project.proof },
+        { label: "Engineering", title: "The hard part", body: project.challenge },
+        { label: "Outcome", title: "Where it landed", body: project.outcome }
+      ].forEach(function (section) {
+        var item = el("article", "case-study__item");
+        item.appendChild(el("p", "case-study__label", section.label));
+        item.appendChild(el("h2", null, section.title));
+        item.appendChild(el("p", null, section.body));
+        caseStudy.appendChild(item);
+      });
+      root.appendChild(caseStudy);
+    }
 
     if (project.currentStatus) {
       var status = el("section", "project-status reveal");
