@@ -38,6 +38,18 @@
     });
   }
 
+  function renderEducation() {
+    var container = document.getElementById("education-grid");
+    EDUCATION.forEach(function (education) {
+      var card = element("article", "education-card reveal");
+      card.appendChild(element("p", "education-card__period", education.period));
+      card.appendChild(element("h3", null, education.school));
+      card.appendChild(element("p", "education-card__credential", education.credential));
+      card.appendChild(element("p", "education-card__body", education.body));
+      container.appendChild(card);
+    });
+  }
+
   function renderMilestones() {
     var container = document.getElementById("about-milestone-list");
     MILESTONES.forEach(function (milestone) {
@@ -53,6 +65,7 @@
 
   function init() {
     renderStory();
+    renderEducation();
     renderCapabilities();
     renderMilestones();
     if (window.PortfolioUI) window.PortfolioUI.refresh();

@@ -41,6 +41,21 @@ var MILESTONES = [
   { date: "September 2026", title: "First externally installable release", body: "Multiplayer AI v0.2.0 passed signing, notarisation, stapling, and Gatekeeper acceptance on physical Macs." }
 ];
 
+var EDUCATION = [
+  {
+    period: "Italy · through 2024",
+    school: "H-FARM International School",
+    credential: "International Baccalaureate Diploma Programme",
+    body: "I followed the IB curriculum throughout my education and graduated from the Diploma Programme with the IB Diploma. Growing up inside the H-FARM environment exposed me early to startups, hackathons, technology, and a culture where building and testing ideas was normal."
+  },
+  {
+    period: "Miami · 2024 to present",
+    school: "Barry University",
+    credential: "Computer Science",
+    body: "I moved to the United States to study Computer Science, deepen my systems foundation, and continue turning technical ideas into working products and companies."
+  }
+];
+
 /*
   Story — chronological beats with full narrative.
 */
@@ -48,7 +63,7 @@ var STORY = [
   {
     date: "2024",
     title: "Moving from Italy to Miami",
-    body: "I grew up between Venice and Treviso, Italy, where I completed my education before moving to the United States in 2024. That year, I moved to Miami to study Computer Science at Barry University.<br><br>Moving countries forced me to become independent quickly. I was entering a new academic system, a new culture, and a completely different environment while trying to figure out what I actually wanted to build with computer science.<br><br>At first, I was interested broadly in software, cybersecurity, and artificial intelligence. I experimented constantly, building small projects and testing ideas rather than committing too early to one direction."
+    body: "I grew up between Venice and Treviso, Italy, and in many ways inside H-FARM. I studied at H-FARM International School, followed the International Baccalaureate curriculum throughout my education, and graduated from the Diploma Programme with the IB Diploma.<br><br>H-FARM exposed me early to startups, hackathons, technology, and a culture where building and testing ideas was normal. That environment made the technology world feel less like something distant and more like something I could participate in directly.<br><br>In 2024, I moved to Miami to study Computer Science at Barry University. Moving countries forced me to become independent quickly. I entered a new academic system and culture while continuing to experiment across software, cybersecurity, and artificial intelligence."
   },
   {
     date: "2025",
