@@ -63,7 +63,7 @@ var STORY = [
   {
     date: "2024",
     title: "Moving from Italy to Miami",
-    body: "I grew up between Venice and Treviso, Italy, and in many ways inside H-FARM. I studied at H-FARM International School, followed the International Baccalaureate curriculum throughout my education, and graduated from the Diploma Programme with the IB Diploma.<br><br>H-FARM exposed me early to startups, hackathons, technology, and a culture where building and testing ideas was normal. That environment made the technology world feel less like something distant and more like something I could participate in directly.<br><br>In 2024, I moved to Miami to study Computer Science at Barry University. Moving countries forced me to become independent quickly. I entered a new academic system and culture while continuing to experiment across software, cybersecurity, and artificial intelligence."
+    body: "I grew up in Treviso, a small city near Venice, Italy, and in many ways inside H-FARM. I studied at H-FARM International School, followed the International Baccalaureate curriculum throughout my education, and graduated from the Diploma Programme with the IB Diploma.<br><br>H-FARM exposed me early to startups, hackathons, technology, and a culture where building and testing ideas was normal. That environment made the technology world feel less like something distant and more like something I could participate in directly.<br><br>In 2024, I moved to Miami to study Computer Science at Barry University. Moving countries forced me to become independent quickly. I entered a new academic system and culture while continuing to experiment across software, cybersecurity, and artificial intelligence."
   },
   {
     date: "2025",
