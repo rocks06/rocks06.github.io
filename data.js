@@ -310,7 +310,7 @@ var UPDATES = [
   {
     date: "2026-09-19",
     title: "Local broker security architecture implemented",
-    body: "Agent filesystem, shell, code, network, and room actions now route through policy checks, with per room runtime isolation, private network protection, and macOS sandbox execution. Physical acceptance is still in progress."
+    body: "Agent filesystem, shell, code, network, and room actions moved behind policy checks, with per room runtime isolation, private network protection, and macOS sandbox execution. The architecture later passed physical acceptance on 23 September."
   },
   {
     date: "2026-09-18",
