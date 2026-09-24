@@ -49,7 +49,7 @@
       var timeline = el("section", "development-timeline reveal");
       var timelineHeader = el("div", "development-timeline__header");
       timelineHeader.appendChild(el("p", "project-body__label", "Engineering timeline"));
-      timelineHeader.appendChild(el("h2", null, "Built in public, accepted in hardware."));
+      timelineHeader.appendChild(el("h2", null, "Engineering record, accepted in hardware."));
       timeline.appendChild(timelineHeader);
       var timelineList = el("div", "development-timeline__list");
       project.developmentTimeline.forEach(function (event) {

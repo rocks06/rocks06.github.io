@@ -106,64 +106,61 @@ var PROJECTS = [
     detail: "Moves the interaction model from one human talking to one assistant, toward agents that meet and collaborate in shared rooms across users and organisations. Includes workspace onboarding, company scoped APIs, agent enrolment, room membership, and an authorisation layer verified by regression tests.",
     problem: "AI agents are usually isolated inside single user products and cannot safely collaborate with agents owned by other people or companies.",
     proof: "Persistent rooms, multiple human accounts, external agent profiles, realtime messaging, tasks, decisions, file attachments, notifications, and server enforced permissions are working.",
-    challenge: "Force every local agent action through enforceable policy boundaries without depending on prompts or unrestricted native tools.",
-    outcome: "The private v0.2.0 engineering release is signed, notarised, and Gatekeeper accepted. P1-B physical end to end validation remains in progress.",
+    challenge: "Add intelligent file permissions and an exfiltration gate while preserving useful agent workflows.",
+    outcome: "The private v0.2.0 engineering release is signed, notarised, and Gatekeeper accepted. P1-B local runtime security passed physical end to end acceptance on macOS on 23 September 2026.",
     currentStatus: {
-      date: "21 September 2026",
-      title: "Security architecture under physical validation",
-      body: "Multiplayer AI now has working persistent rooms, multiple human accounts, multiple external agent profiles, realtime messaging, agent to agent collaboration, tasks, decisions, file attachments, native notifications, and a hardened server side permission model.",
-      focus: "The current engineering focus is P1-B local runtime security: forcing every agent filesystem, shell, network, and room action through an enforceable broker instead of relying on model prompts or unrestricted native tools. The secure Mac build passes 18 of 18 installation and security checks, but end to end physical broker execution is still under active validation. Multiplayer AI is not yet a public production release."
+      date: "23 September 2026",
+      title: "P1-B security acceptance completed",
+      body: "Multiplayer AI's local agent security architecture passed physical end to end validation on macOS. Permission changes, broker resilience, room and profile isolation, network protections, sandbox enforcement, runtime recovery, and security auditing all passed the acceptance boundary.",
+      focus: "The current engineering focus is P1-C: an intelligent file permission and exfiltration gate for agent file access. Multiplayer AI remains an engineering release and is not yet a public production product."
     },
     developmentTimeline: [
       {
+        date: "23 September 2026",
+        title: "P1-B physical acceptance completed",
+        body: "The installed Mac build passed physical end to end acceptance for capability revocation, broker resilience, command and network policy enforcement, room and profile isolation, sandbox and timeout controls, client event sanitation, and security auditing. P1-B is closed; P1-C is now the active security phase."
+      },
+      {
         date: "21 September 2026",
         title: "Hermes compatibility investigation",
-        body: "Built compatibility coverage for Hermes 0.20.5 and 0.21.0, removed misleading assumptions around the MCP discovery lifecycle, and added more realistic product launch testing. P1-B remains unaccepted because the real agent reply path has not yet passed physical end to end validation.",
-        commits: ["5f2b3a7", "01f6a80", "43aeeba"]
+        body: "Built compatibility coverage for Hermes 0.20.5 and 0.21.0, removed misleading assumptions around the MCP discovery lifecycle, and added more realistic product launch testing. This investigation remained open until the physical acceptance pass on 23 September."
       },
       {
         date: "21 September 2026",
         title: "Hermes tool exposure corrected",
-        body: "Found that Hermes Tool Search was replacing 13 Multiplayer tools with generic wrappers. Disabled Tool Search for the room runtime and corrected the MCP tool names to the actual mcp__multiplayer__ namespace.",
-        commits: ["df01136"]
+        body: "Found that Hermes Tool Search was replacing 13 Multiplayer tools with generic wrappers. Disabled Tool Search for the room runtime and corrected the MCP tool names to the actual mcp__multiplayer__ namespace."
       },
       {
         date: "20–21 September 2026",
         title: "MCP bridge and runtime hardened",
-        body: "Added relay lifecycle and error logging, prevented one failed broker request from terminating the MCP relay, and added subprocess diagnostics for startup, calls, and shutdown.",
-        commits: ["1d1ef13"]
+        body: "Added relay lifecycle and error logging, prevented one failed broker request from terminating the MCP relay, and added subprocess diagnostics for startup, calls, and shutdown."
       },
       {
         date: "20 September 2026",
         title: "Broker invocation wiring fixed",
-        body: "Found the broker bridge attached to the wrong adapter property, fixed the real helper to Hermes invocation path, and added packaged helper wake regression coverage across multiple profiles and reconnects.",
-        commits: ["532899e"]
+        body: "Found the broker bridge attached to the wrong adapter property, fixed the real helper to Hermes invocation path, and added packaged helper wake regression coverage across multiple profiles and reconnects."
       },
       {
         date: "20 September 2026",
         title: "Physical testing exposed a stale build",
-        body: "Discovered that the Mac was still running older app build ca290a0 while the server was newer. Added build stamping, helper diagnostics, local enforcement reporting, refusal of stale or unenforced connectors, and verify-installed-app.mjs. The first properly installed secure build passed 18 of 18 installation and security checks. This was a major release hardening discovery, not a finished release.",
-        commits: ["ef90225"]
+        body: "Discovered that the Mac was still running an older app build while the server was newer. Added build stamping, helper diagnostics, local enforcement reporting, refusal of stale or unenforced connectors, and an installed app verification tool. The first properly installed secure build passed 18 of 18 installation and security checks. This was a major release hardening discovery, not a finished release."
       },
       {
         date: "19 September 2026",
         title: "P1-B local security architecture implemented",
-        body: "Introduced a local broker for agent tools. Filesystem, shell and code, and network actions moved behind policy checks; the raw session token was removed from the intended model facing environment; per room Hermes runtime and memory isolation, private network protections, and macOS sandbox execution were added. Implementation is complete, while physical acceptance remains in progress.",
-        commits: ["ee63ae5"]
+        body: "Introduced a local broker for agent tools. Filesystem, shell and code, and network actions moved behind policy checks; the raw session token was removed from the intended model facing environment; per room Hermes runtime and memory isolation, private network protections, and macOS sandbox execution were added. The architecture was physically accepted on 23 September."
       },
       {
         date: "18 September 2026",
         title: "Security foundation and P1-A deployed",
-        body: "Deployed server side capability enforcement, room scoped agent permissions, tighter cross room and workspace isolation, active session capability revocation, an append only security audit log, and basic agent secret output blocking. Agents can no longer grant themselves capabilities. Human session and token revocation also passed while workspace data survived reauthentication.",
-        commits: ["91ae668"]
+        body: "Deployed server side capability enforcement, room scoped agent permissions, tighter cross room and workspace isolation, active session capability revocation, an append only security audit log, and basic agent secret output blocking. Agents can no longer grant themselves capabilities. Human session and token revocation also passed while workspace data survived reauthentication."
       }
     ],
     milestone: {
       date: "3 September 2026",
       version: "v0.2.0",
       title: "First externally installable engineering release",
-      body: "The macOS build passed Developer ID signing, Apple notarisation, stapling, and Gatekeeper acceptance on physical machines. Human sharing partially passed: two separate accounts joined the same persistent room and exchanged realtime messages. The end to end external agent connection is still blocked, so this is an engineering milestone rather than a product ready public launch.",
-      href: "https://github.com/rocks06/multiplayer-ai/releases/tag/v0.2.0"
+      body: "The macOS build passed Developer ID signing, Apple notarisation, stapling, and Gatekeeper acceptance on physical machines. Human sharing partially passed: two separate accounts joined the same persistent room and exchanged realtime messages. The end to end external agent connection was still blocked at this milestone, so it was an engineering release rather than a product ready public launch."
     },
     stack: ["TypeScript", "Swift", "PostgreSQL", "Realtime systems", "Authentication and authorisation", "macOS distribution"],
     client: null,
@@ -296,9 +293,14 @@ var PROJECTS = [
 */
 var UPDATES = [
   {
+    date: "2026-09-23",
+    title: "P1-B local security passes physical acceptance",
+    body: "The local agent security architecture passed physical end to end validation on macOS, including permission revocation, broker resilience, isolation boundaries, network protections, sandbox enforcement, runtime recovery, and security auditing. P1-B is closed. The next phase is P1-C: an intelligent file permission and exfiltration gate. Multiplayer AI is still an engineering release, not a public production product."
+  },
+  {
     date: "2026-09-21",
-    title: "P1-B remains under physical validation",
-    body: "Hermes compatibility and tool exposure fixes now cover realistic room launch paths. The secure Mac build passes 18 of 18 installation and security checks, but the real agent reply path has not yet passed physical end to end validation. This is active release hardening, not a public production release."
+    title: "P1-B enters final physical validation",
+    body: "Hermes compatibility and tool exposure fixes covered realistic room launch paths, while the secure Mac build passed 18 of 18 installation and security checks. The remaining real agent reply path was later accepted on 23 September."
   },
   {
     date: "2026-09-20",
