@@ -90,9 +90,49 @@ var PROJECTS = [
     summary: "Voice guided repair assistance on iOS. Point a phone camera at a machine, describe the problem out loud, and get a diagnosis and step by step guidance without touching the screen.",
     detail: "The app analyses the live camera feed and answers in a natural voice, with overlays that point at the specific component being discussed. Interruption is handled the way a person handles it: start speaking and it stops and listens. Built for people whose hands are occupied with the equipment in front of them. An enterprise edition ships with deep knowledge of a specific equipment catalogue, including failure modes, safety warnings, part references, and expected repair times, so it answers like a technician who already knows the plant.",
     problem: "Field technicians often need manuals, search, or remote experts while their hands and attention are already occupied by the equipment.",
-    proof: "A working iOS system combines live camera analysis, voice input, spoken guidance, interruption handling, and component level visual overlays.",
-    challenge: "Keep the interaction fast and grounded while coordinating vision, speech, turn taking, and equipment specific knowledge.",
-    outcome: "Active development for industrial equipment and field service use, including a catalogue aware enterprise edition.",
+    proof: "Working private iOS builds combine live camera analysis, natural voice input, exact spoken guidance, interruption handling, task state, and component level visual overlays.",
+    challenge: "Turn the working guidance loop into a reliable field service product with durable service records and remote support without adding interaction latency.",
+    outcome: "The original pitch concept became a working consumer iOS app and a separate equipment scoped enterprise edition. Customer discovery and measured field outcomes remain ahead, so this is not yet a public beta.",
+    currentStatus: {
+      date: "20 September 2026",
+      title: "Working iOS system and enterprise edition",
+      body: "Vision AI now runs as private iOS builds for general repair guidance and equipment scoped field service. The system combines live camera reasoning, full duplex voice, barge in, visual grounding, in session task state, captions, session logs, and fallback speech paths.",
+      focus: "The current product decision is how to combine technician service records with remote customer support. Persistent service history, team accounts, role based access, and measured customer outcomes are not built yet."
+    },
+    timelineTitle: "From pitch concept to working iOS system.",
+    developmentTimeline: [
+      {
+        date: "20 September 2026",
+        title: "B2B workflow narrowed after field service review",
+        body: "A product review with an industrial equipment company narrowed the next phase to technician service records, remote customer support, or a combined workflow. The public materials also need to reflect the real single model guidance architecture rather than the original pitch deck's three model concept."
+      },
+      {
+        date: "16 September 2026",
+        title: "Product story moved toward field repair",
+        body: "The site and product narrative shifted away from consumer pricing toward repair specific guidance and the See, Understand, Guide, Verify loop. Smart glasses remain a future input direction rather than a current product claim."
+      },
+      {
+        date: "28 August 2026",
+        title: "Current architecture documented",
+        body: "A full product explainer captured the working stack and B2B position: one low latency vision and reasoning path, full duplex conversation, interruption handling, visual grounding, and an equipment scoped enterprise edition."
+      },
+      {
+        date: "July to 13 August 2026",
+        title: "Main iOS build sprint completed",
+        body: "The prototype became a working private iOS application. The build added embedded safety checks, full duplex speech, voice activity detection, barge in, speech cleanup, repaired overlays, captions, session logging, support and legal surfaces, protected configuration, and fallback speech paths. Separate consumer and equipment scoped editions were produced."
+      },
+      {
+        date: "May 2026",
+        title: "Pressure test and demo MVP",
+        body: "An early business review exposed liability, willingness to pay, and scope problems in the consumer concept. The direction shifted toward junior field technicians, while a stripped down camera demo established structured visual coordinates and a pulsing overlay for the first recorded walkthrough."
+      }
+    ],
+    milestone: {
+      date: "August 2026",
+      version: "Private iOS build",
+      title: "Two working Vision AI editions",
+      body: "The main build sprint produced a general repair application and a separate enterprise edition scoped to a specific equipment catalogue. Both remain private development builds while service history, multi user access, role based permissions, and field outcome validation are developed."
+    },
     stack: ["React", "Capacitor", "iOS", "Gemini 2.5 Flash vision and reasoning", "Full duplex speech synthesis", "Voice activity detection for turn taking"],
     client: null,
     clientNote: "A US industrial equipment distributor"
@@ -114,6 +154,7 @@ var PROJECTS = [
       body: "Multiplayer AI's local agent security architecture passed physical end to end validation on macOS. Permission changes, broker resilience, room and profile isolation, network protections, sandbox enforcement, runtime recovery, and security auditing all passed the acceptance boundary.",
       focus: "The current engineering focus is P1-C: an intelligent file permission and exfiltration gate for agent file access. Multiplayer AI remains an engineering release and is not yet a public production product."
     },
+    timelineTitle: "Engineering record, accepted in hardware.",
     developmentTimeline: [
       {
         date: "23 September 2026",
@@ -306,6 +347,11 @@ var UPDATES = [
     date: "2026-09-20",
     title: "Physical testing finds and closes a stale build gap",
     body: "Build stamping, helper diagnostics, enforcement reporting, and stale connector refusal now make the installed app state visible and enforceable. A properly installed secure build passed all 18 installation and security checks."
+  },
+  {
+    date: "2026-09-20",
+    title: "Vision AI narrows its B2B field service direction",
+    body: "A field service review narrowed the next product decision to technician service records, remote customer support, or a combined workflow. The working private iOS system already supports camera based guidance, natural voice interruption, visual grounding, and an equipment scoped enterprise edition."
   },
   {
     date: "2026-09-19",
