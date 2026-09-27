@@ -38,7 +38,7 @@ var MILESTONES = [
   { date: "2024", title: "Moved from Italy to Miami", body: "Started studying Computer Science at Barry University and began building independently in a new country." },
   { date: "2025", title: "From prototypes to products", body: "Built AI Closet, ÉLAN, spatial computing experiments, and an AI compliance prototype." },
   { date: "February 2026", title: "Built at the Inspire Hackathon", body: "Created the Mealo prototype with the Barry University AI Center." },
-  { date: "September 2026", title: "First externally installable release", body: "Multiplayer AI v0.2.0 passed signing, notarisation, stapling, and Gatekeeper acceptance on physical Macs." }
+  { date: "September 2026", title: "First externally installable release", body: "Multiplayer AI v0.18.0 passed signing, notarisation, stapling, and Gatekeeper acceptance on physical Macs. The historical GitHub tag remains v0.2.0." }
 ];
 
 var EDUCATION = [
@@ -146,62 +146,221 @@ var PROJECTS = [
     detail: "Moves the interaction model from one human talking to one assistant, toward agents that meet and collaborate in shared rooms across users and organisations. Includes workspace onboarding, company scoped APIs, agent enrolment, room membership, and an authorisation layer verified by regression tests.",
     problem: "AI agents are usually isolated inside single user products and cannot safely collaborate with agents owned by other people or companies.",
     proof: "Persistent rooms, multiple human accounts, external agent profiles, realtime messaging, tasks, decisions, file attachments, notifications, and server enforced permissions are working.",
-    challenge: "Add intelligent file permissions and an exfiltration gate while preserving useful agent workflows.",
-    outcome: "The private v0.2.0 engineering release is signed, notarised, and Gatekeeper accepted. P1-B local runtime security passed physical end to end acceptance on macOS on 23 September 2026.",
+    challenge: "Turn the completed P1 architecture, control, and security foundation into a reliable release candidate that survives clean machine installation and real distribution conditions.",
+    outcome: "The canonical development version is v0.32.0. P1-D passed physical acceptance on 25 September 2026, closing the core P1 program and moving Multiplayer AI into P2 Release Hardening. The product is not publicly released yet.",
     currentStatus: {
-      date: "23 September 2026",
-      title: "P1-B security acceptance completed",
-      body: "Multiplayer AI's local agent security architecture passed physical end to end validation on macOS. Permission changes, broker resilience, room and profile isolation, network protections, sandbox enforcement, runtime recovery, and security auditing all passed the acceptance boundary.",
-      focus: "The current engineering focus is P1-C: an intelligent file permission and exfiltration gate for agent file access. Multiplayer AI remains an engineering release and is not yet a public production product."
+      date: "25 September 2026",
+      version: "v0.32.0",
+      title: "P2 Release Hardening",
+      body: "P1-D closed after physical acceptance testing, completing the core P1 architecture, control, and security work. The canonical version ladder now runs from v0.0.1 through v0.32.0 without skipping the development stages that came before P1.",
+      focus: "P2 focuses on release hygiene, macOS distribution, reliability, clean machine validation, and final release candidate work. Multiplayer AI is not publicly released or production ready yet."
     },
-    timelineTitle: "Engineering record, accepted in hardware.",
+    timelineTitle: "Every development stage, from room core to P2.",
     developmentTimeline: [
       {
-        date: "23 September 2026",
-        title: "P1-B physical acceptance completed",
-        body: "The installed Mac build passed physical end to end acceptance for capability revocation, broker resilience, command and network policy enforcement, room and profile isolation, sandbox and timeout controls, client event sanitation, and security auditing. P1-B is closed; P1-C is now the active security phase."
+        date: "25 September 2026",
+        version: "v0.32.0",
+        title: "P2 Release Hardening begins",
+        body: "P1 is complete. Engineering shifts to release hygiene, macOS distribution, reliability, clean machine validation, and final release candidate work without claiming a public release."
       },
       {
-        date: "21 September 2026",
-        title: "Hermes compatibility investigation",
-        body: "Built compatibility coverage for Hermes 0.20.5 and 0.21.0, removed misleading assumptions around the MCP discovery lifecycle, and added more realistic product launch testing. This investigation remained open until the physical acceptance pass on 23 September."
+        date: "24–25 September 2026",
+        version: "v0.31.0",
+        title: "P1-D human control, project folders, governance, and physical acceptance",
+        body: "Added human control of agents and grants, project folder governance, audit visibility, ordinary denial handling, durable Needs You attention, and the final physical acceptance fixes. P1-D officially closed on 25 September."
       },
       {
-        date: "21 September 2026",
-        title: "Hermes tool exposure corrected",
-        body: "Found that Hermes Tool Search was replacing 13 Multiplayer tools with generic wrappers. Disabled Tool Search for the room runtime and corrected the MCP tool names to the actual mcp__multiplayer__ namespace."
+        date: "23–24 September 2026",
+        version: "v0.30.0",
+        title: "P1-C intelligent per-file permission gate",
+        body: "Added per file approval outside approved project folders and made an approved request wake the agent with the original call available to retry."
       },
       {
-        date: "20–21 September 2026",
-        title: "MCP bridge and runtime hardened",
-        body: "Added relay lifecycle and error logging, prevented one failed broker request from terminating the MCP relay, and added subprocess diagnostics for startup, calls, and shutdown."
-      },
-      {
-        date: "20 September 2026",
-        title: "Broker invocation wiring fixed",
-        body: "Found the broker bridge attached to the wrong adapter property, fixed the real helper to Hermes invocation path, and added packaged helper wake regression coverage across multiple profiles and reconnects."
-      },
-      {
-        date: "20 September 2026",
-        title: "Physical testing exposed a stale build",
-        body: "Discovered that the Mac was still running an older app build while the server was newer. Added build stamping, helper diagnostics, local enforcement reporting, refusal of stale or unenforced connectors, and an installed app verification tool. The first properly installed secure build passed 18 of 18 installation and security checks. This was a major release hardening discovery, not a finished release."
-      },
-      {
-        date: "19 September 2026",
-        title: "P1-B local security architecture implemented",
-        body: "Introduced a local broker for agent tools. Filesystem, shell and code, and network actions moved behind policy checks; the raw session token was removed from the intended model facing environment; per room Hermes runtime and memory isolation, private network protections, and macOS sandbox execution were added. The architecture was physically accepted on 23 September."
+        date: "19–23 September 2026",
+        version: "v0.29.0",
+        title: "P1-B enforced local broker, hardening, and physical acceptance",
+        body: "Forced local agent filesystem, shell, network, and room actions through enforced tools. Broker resilience, isolation, sandbox controls, revocation, sanitation, and the final physical path passed acceptance."
       },
       {
         date: "18 September 2026",
-        title: "Security foundation and P1-A deployed",
-        body: "Deployed server side capability enforcement, room scoped agent permissions, tighter cross room and workspace isolation, active session capability revocation, an append only security audit log, and basic agent secret output blocking. Agents can no longer grant themselves capabilities. Human session and token revocation also passed while workspace data survived reauthentication."
+        version: "v0.28.0",
+        title: "P1-A server-side capabilities, isolation, secret boundaries, and audit",
+        body: "Deployed room scoped capabilities, tighter workspace isolation, active revocation, secret output boundaries, and append only security auditing."
+      },
+      {
+        date: "18 September 2026",
+        version: "v0.27.0",
+        title: "P0 authentication and shared-room security fixes",
+        body: "Closed sign in token exposure and shared room security gaps, then made sign out return to a truthful sign in state."
+      },
+      {
+        date: "16–17 September 2026",
+        version: "v0.26.0",
+        title: "Ownership, mentions, unread state, notifications, and bounded collaboration",
+        body: "Added structured mentions, ownership, unread rooms, native notifications, bounded agent collaboration, receipts, first unread navigation, agent views, and attention controls."
+      },
+      {
+        date: "16 September 2026",
+        version: "v0.25.0",
+        title: "Multiple local agent profiles and lifecycle controls",
+        body: "Enabled several local agents, profile startup, credential preserving disconnect, clearer room assignment, and agent removal from one room."
+      },
+      {
+        date: "15 September 2026",
+        version: "v0.24.0",
+        title: "Native PDF preview, bounded rooms, and credential-preserving agent moves",
+        body: "Added native PDF preview, stabilized empty room layout, and allowed a single agent to move rooms without creating a new credential."
+      },
+      {
+        date: "11 September 2026",
+        version: "v0.23.0",
+        title: "Helper IPC and identity-preserving onboarding",
+        body: "Unblocked packaged helper communication and preserved agent identity through onboarding and reconnection."
+      },
+      {
+        date: "8–9 September 2026",
+        version: "v0.22.0",
+        title: "Durable files and atomic artifact delivery",
+        body: "Added durable room files, agent artifact delivery, credential safe provider failures, atomic uploads, file cards, native handling, and upload gated replies."
+      },
+      {
+        date: "7 September 2026",
+        version: "v0.21.0",
+        title: "Room UI, message timing, and command reliability",
+        body: "Bounded the room layout, timestamped messages, and prevented shell behavior from losing commands on the way to a room."
+      },
+      {
+        date: "3 September 2026",
+        version: "v0.20.0",
+        title: "End-to-end existing local-agent connection",
+        body: "Completed the connection path for an agent already running on the Mac."
+      },
+      {
+        date: "3 September 2026",
+        version: "v0.19.0",
+        title: "Browser-to-app joined-room handoff",
+        body: "Carried an accepted browser invitation into the native application and preserved the joined room."
+      },
+      {
+        date: "3 September 2026",
+        version: "v0.18.0",
+        title: "First externally installable engineering release",
+        body: "Produced the first signed, notarised, stapled, and Gatekeeper accepted Mac build. The historical GitHub tag remains v0.2.0, but this stage is v0.18.0 in the canonical ladder."
+      },
+      {
+        date: "2 September 2026",
+        version: "v0.17.0",
+        title: "Onboarding, invite completion, and Hermes detection",
+        body: "Made onboarding run end to end, completed browser invite authentication, connected the existing agent flow to the intended runtime, and corrected Hermes health detection."
+      },
+      {
+        date: "1 September 2026",
+        version: "v0.16.0",
+        title: "Secure room sharing and runtime rebinding",
+        body: "Scoped enrollment to rooms, added secure room sharing, enforced one live runtime binding, and prevented rebinding from falsely reporting removed access."
+      },
+      {
+        date: "30–31 August 2026",
+        version: "v0.15.0",
+        title: "Production delivery, authentication, readiness, and single-app packaging",
+        body: "Hardened hosted asset delivery and sign in, removed tokens from URLs, handled upgrades and Keychain behavior, added readiness truth, automated empty database migration, and prepared one downloadable application."
+      },
+      {
+        date: "29 August 2026",
+        version: "v0.14.0",
+        title: "Product shell, Home, and navigation",
+        body: "Added the product front door, Home, and a reliable route back from active work."
+      },
+      {
+        date: "28 August 2026",
+        version: "v0.13.0",
+        title: "Existing-agent connection and room-first onboarding",
+        body: "Created the room before its objective, connected agents users already operate, persisted Mac destination settings, allowed later agent addition, and made agent commands execute."
+      },
+      {
+        date: "27 August 2026",
+        version: "v0.12.0",
+        title: "Public marketing and deployment foundation",
+        body: "Added the public marketing site, configured its deployment, and clarified founder attribution without claiming beta readiness."
+      },
+      {
+        date: "27 August 2026",
+        version: "v0.11.0",
+        title: "Stage 8: Mac Connector without Terminal",
+        body: "Introduced the native Mac Connector so local agent setup no longer depended on Terminal."
+      },
+      {
+        date: "27 August 2026",
+        version: "v0.10.0",
+        title: "Stage 7: bring agents into a shared workspace",
+        body: "Added authenticated agent creation and room discovery so users could bring their own agents into one workspace."
+      },
+      {
+        date: "27 August 2026",
+        version: "v0.9.0",
+        title: "Stage 6: readable shared work and explicit controls",
+        body: "Made shared work legible and ensured controls describe the actions they perform."
+      },
+      {
+        date: "27 August 2026",
+        version: "v0.8.0",
+        title: "Stage 5: Needs You and answerable decisions",
+        body: "Introduced the human attention surface and decisions a person could understand and answer."
+      },
+      {
+        date: "27 August 2026",
+        version: "v0.7.0",
+        title: "Design foundation, sign-in, room shell, and presence",
+        body: "Established the visual system, sign in, three part room shell, provable presence, and visibility into agent conversations."
+      },
+      {
+        date: "27 August 2026",
+        version: "v0.6.0",
+        title: "Production authentication, workspace, and task controls",
+        body: "Added production human authentication, authenticated workspace creation, agent listing, task dependencies, reply relationships, resume, and reassignment controls."
+      },
+      {
+        date: "26 August 2026",
+        version: "v0.5.0",
+        title: "Reusable connector core and secure enrollment",
+        body: "Extracted the connector core, secured enrollment, and exposed external agent liveness in the room."
+      },
+      {
+        date: "25 August 2026",
+        version: "v0.4.0",
+        title: "Multiplayer room interface",
+        body: "Added the first room interface for multiple humans and agents."
+      },
+      {
+        date: "25 August 2026",
+        version: "v0.3.0",
+        title: "External Agent Gateway",
+        body: "Created the provider neutral gateway that lets independently operated agents join rooms."
+      },
+      {
+        date: "25 August 2026",
+        version: "v0.2.0",
+        title: "Human decisions and agent resume workflow",
+        body: "Added human approval decisions and the workflow that resumes agent work afterward."
+      },
+      {
+        date: "24 August 2026",
+        version: "v0.1.0",
+        title: "Durable agent runtime and worker",
+        body: "Added the durable runtime and worker that preserve agent execution beyond one request."
+      },
+      {
+        date: "24 August 2026",
+        version: "v0.0.1",
+        title: "Room core and realtime synchronization",
+        body: "Established persistent room state and realtime synchronization as the first project stage."
       }
     ],
     milestone: {
       date: "3 September 2026",
-      version: "v0.2.0",
+      version: "v0.18.0",
       title: "First externally installable engineering release",
-      body: "The macOS build passed Developer ID signing, Apple notarisation, stapling, and Gatekeeper acceptance on physical machines. Human sharing partially passed: two separate accounts joined the same persistent room and exchanged realtime messages. The end to end external agent connection was still blocked at this milestone, so it was an engineering release rather than a product ready public launch."
+      body: "The macOS build passed Developer ID signing, Apple notarisation, stapling, and Gatekeeper acceptance on physical machines. Human sharing partially passed: two separate accounts joined the same persistent room and exchanged realtime messages. The historical GitHub release remains tagged v0.2.0, but its canonical stage is v0.18.0."
     },
     stack: ["TypeScript", "Swift", "PostgreSQL", "Realtime systems", "Authentication and authorisation", "macOS distribution"],
     client: null,
@@ -334,17 +493,38 @@ var PROJECTS = [
 */
 var UPDATES = [
   {
+    date: "2026-09-25",
+    version: "v0.32.0",
+    title: "Multiplayer AI enters P2 Release Hardening",
+    body: "P1 architecture, control, and security work is complete. P2 shifts the focus to release hygiene, macOS distribution, reliability, clean machine validation, and final release candidate work. Multiplayer AI is not publicly released yet."
+  },
+  {
+    date: "2026-09-25",
+    version: "v0.31.0",
+    title: "P1-D closes after physical acceptance",
+    body: "Physical acceptance closed the human control, project folder, grant, governance, audit, denial, and attention behavior phase. This completed the core P1 program."
+  },
+  {
+    date: "2026-09-24",
+    version: "v0.30.0",
+    title: "P1-C completes the intelligent file permission gate",
+    body: "Files outside approved project folders now require explicit per file approval, and approved requests return to the agent with the original operation available to retry."
+  },
+  {
     date: "2026-09-23",
+    version: "v0.29.0",
     title: "P1-B local security passes physical acceptance",
-    body: "The local agent security architecture passed physical end to end validation on macOS, including permission revocation, broker resilience, isolation boundaries, network protections, sandbox enforcement, runtime recovery, and security auditing. P1-B is closed. The next phase is P1-C: an intelligent file permission and exfiltration gate. Multiplayer AI is still an engineering release, not a public production product."
+    body: "The local agent security architecture passed physical end to end validation on macOS, including permission revocation, broker resilience, isolation boundaries, network protections, sandbox enforcement, runtime recovery, and security auditing. P1-B closed and P1-C followed as the next security phase."
   },
   {
     date: "2026-09-21",
+    version: "v0.29.0",
     title: "P1-B enters final physical validation",
     body: "Hermes compatibility and tool exposure fixes covered realistic room launch paths, while the secure Mac build passed 18 of 18 installation and security checks. The remaining real agent reply path was later accepted on 23 September."
   },
   {
     date: "2026-09-20",
+    version: "v0.29.0",
     title: "Physical testing finds and closes a stale build gap",
     body: "Build stamping, helper diagnostics, enforcement reporting, and stale connector refusal now make the installed app state visible and enforceable. A properly installed secure build passed all 18 installation and security checks."
   },
@@ -355,18 +535,21 @@ var UPDATES = [
   },
   {
     date: "2026-09-19",
+    version: "v0.29.0",
     title: "Local broker security architecture implemented",
     body: "Agent filesystem, shell, code, network, and room actions moved behind policy checks, with per room runtime isolation, private network protection, and macOS sandbox execution. The architecture later passed physical acceptance on 23 September."
   },
   {
     date: "2026-09-18",
+    version: "v0.28.0",
     title: "Server side security foundation deployed",
     body: "Room scoped capabilities, stronger workspace isolation, active session revocation, append only security auditing, and basic secret output blocking established the P1-A security foundation."
   },
   {
     date: "2026-09-03",
-    title: "Multiplayer AI v0.2.0 passes its first public release acceptance test",
-    body: "The first externally installable engineering release is signed, notarised, stapled, and accepted by Gatekeeper. Two separate human accounts joined the same persistent room and exchanged realtime messages. The external agent connection foundation is still blocked, so this marks tested progress rather than a product ready public launch."
+    version: "v0.18.0",
+    title: "Multiplayer AI passes its first installable release acceptance test",
+    body: "The first externally installable engineering release is signed, notarised, stapled, and accepted by Gatekeeper. Two separate human accounts joined the same persistent room and exchanged realtime messages. The historical GitHub tag remains v0.2.0; the canonical chronological version is v0.18.0."
   },
   {
     date: "2026-08-14",
@@ -375,6 +558,7 @@ var UPDATES = [
   },
   {
     date: "2026-09-08",
+    version: "v0.22.0",
     title: "Agent rooms reach regression coverage",
     body: "The authorisation layer for shared agent rooms is under regression tests, so enrolment and membership changes cannot quietly widen access."
   },

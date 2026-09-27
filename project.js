@@ -38,7 +38,7 @@
 
     if (project.currentStatus) {
       var status = el("section", "project-status reveal");
-      status.appendChild(el("p", "project-status__meta", "Current status / " + project.currentStatus.date));
+      status.appendChild(el("p", "project-status__meta", "Current status / " + project.currentStatus.date + (project.currentStatus.version ? " / " + project.currentStatus.version : "")));
       status.appendChild(el("h2", null, project.currentStatus.title));
       status.appendChild(el("p", "project-status__body", project.currentStatus.body));
       status.appendChild(el("p", "project-status__focus", project.currentStatus.focus));
@@ -54,7 +54,7 @@
       var timelineList = el("div", "development-timeline__list");
       project.developmentTimeline.forEach(function (event) {
         var item = el("article", "development-event");
-        item.appendChild(el("p", "development-event__date", event.date));
+        item.appendChild(el("p", "development-event__date", event.date + (event.version ? " / " + event.version : "")));
         var eventContent = el("div", "development-event__content");
         eventContent.appendChild(el("h3", null, event.title));
         eventContent.appendChild(el("p", null, event.body));
