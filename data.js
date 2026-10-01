@@ -160,7 +160,8 @@ var PROJECTS = [
       {
         date: "1 October 2026",
         title: "First public teaser published",
-        body: "Multiplayer AI was shown publicly for the first time through a pre-release LinkedIn teaser while the product remains in final pre-launch preparation."
+        body: "Multiplayer AI was shown publicly for the first time through a pre-release LinkedIn teaser while the product remains in final pre-launch preparation.",
+        link: { href: "https://www.linkedin.com/posts/rocco-donadon-19bb221ba_ai-aiagents-startups-ugcPost-7511483913563996161-zcx6/", label: "Watch the teaser on LinkedIn" }
       },
       {
         date: "29 September – 1 October 2026",
@@ -520,7 +521,8 @@ var UPDATES = [
   {
     date: "2026-10-01",
     title: "Multiplayer AI is shown publicly for the first time",
-    body: "Published the first pre-release teaser for Multiplayer AI on LinkedIn as the product moves toward its first official public release. It has not officially launched yet."
+    body: "Published the first pre-release teaser for Multiplayer AI on LinkedIn as the product moves toward its first official public release. It has not officially launched yet.",
+    link: { href: "https://www.linkedin.com/posts/rocco-donadon-19bb221ba_ai-aiagents-startups-ugcPost-7511483913563996161-zcx6/", label: "Watch the teaser on LinkedIn" }
   },
   {
     date: "2026-10-01",

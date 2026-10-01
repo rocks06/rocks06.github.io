@@ -6,7 +6,9 @@
     var list = document.getElementById("update-list");
     UPDATES.slice().sort(function (a, b) { return b.date.localeCompare(a.date); }).forEach(function (update, index) {
       var item = el("article", "note reveal"); item.appendChild(el("time", "note__date", formatDate(update.date) + (update.version ? " · " + update.version : "")));
-      var body = el("div"); body.appendChild(el("h2", null, update.title)); body.appendChild(el("p", null, update.body)); item.appendChild(body);
+      var body = el("div"); body.appendChild(el("h2", null, update.title)); body.appendChild(el("p", null, update.body));
+      if (update.link) { var link = el("a", "note__link", update.link.label + " ↗"); link.href = update.link.href; link.target = "_blank"; link.rel = "noreferrer"; body.appendChild(link); }
+      item.appendChild(body);
       item.appendChild(el("span", "note__mark", String(index + 1).padStart(2, "0"))); list.appendChild(item);
     });
     if (window.PortfolioUI) window.PortfolioUI.refresh();

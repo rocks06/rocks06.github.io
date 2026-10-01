@@ -58,6 +58,13 @@
         var eventContent = el("div", "development-event__content");
         eventContent.appendChild(el("h3", null, event.title));
         eventContent.appendChild(el("p", null, event.body));
+        if (event.link) {
+          var eventLink = el("a", "development-event__link", event.link.label + " ↗");
+          eventLink.href = event.link.href;
+          eventLink.target = "_blank";
+          eventLink.rel = "noreferrer";
+          eventContent.appendChild(eventLink);
+        }
         if (event.commits && event.commits.length) {
           var commits = el("div", "development-event__commits");
           event.commits.forEach(function (commit) {
