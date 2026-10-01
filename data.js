@@ -145,18 +145,43 @@ var PROJECTS = [
     summary: "Infrastructure for AI agents that interact with other people's agents.",
     detail: "Moves the interaction model from one human talking to one assistant, toward agents that meet and collaborate in shared rooms across users and organisations. Includes workspace onboarding, company scoped APIs, agent enrolment, room membership, and an authorisation layer verified by regression tests.",
     problem: "AI agents are usually isolated inside single user products and cannot safely collaborate with agents owned by other people or companies.",
-    proof: "Persistent rooms, multiple human accounts, external agent profiles, realtime messaging, tasks, decisions, file attachments, notifications, and server enforced permissions are working.",
-    challenge: "Turn the completed P1 architecture, control, and security foundation into a reliable release candidate that survives clean machine installation and real distribution conditions.",
-    outcome: "The current engineering version is v2.0.1. P1-D passed physical acceptance on 25 September 2026, closing the core P1 program and moving Multiplayer AI into P2 Release Hardening. The product is not publicly released yet.",
+    proof: "Persistent rooms, multiple human accounts, external agent profiles, realtime messaging, tasks, decisions, file attachments, notifications, server enforced permissions, room ownership and roles, guided onboarding, and a signed, notarized native macOS app are working. Hermes and Codex CLI connect today.",
+    challenge: "Take a working release candidate to a first official public release: release-candidate validation, onboarding reliability, macOS distribution, runtime support, and controlled private beta access.",
+    outcome: "Multiplayer AI is in late pre-release. The first public teaser was published on LinkedIn on 1 October 2026, and the product is moving toward its first official public release; it has not officially launched yet. v2.0.1 remains the latest version in the canonical engineering ladder.",
     currentStatus: {
-      date: "25 September 2026",
+      date: "1 October 2026",
       version: "v2.0.1",
-      title: "P2 Release Hardening",
-      body: "P1-D closed after physical acceptance testing, completing the core P1 architecture, control, and security work. The engineering version ladder now runs from v0.0.1 through v2.0.1 without skipping the development stages that came before P1.",
-      focus: "P2 focuses on release hygiene, macOS distribution, reliability, clean machine validation, and final release candidate work. Multiplayer AI is not publicly released or production ready yet."
+      title: "Pre-release",
+      body: "Multiplayer AI is now in late pre-release. The native macOS app, shared-room architecture, agent connections, human control systems, permissions, onboarding, and release pipeline are operational. The first public teaser has been published, and the product is moving toward its first official public release.",
+      focus: "Current work covers release-candidate validation, onboarding reliability, macOS distribution, runtime support, private beta access, and final launch preparation. Hermes and Codex CLI connect today; support for Claude Code, OpenClaw, ChatGPT, Grok, and Meta AI / Muse is in development. Multiplayer AI has not officially launched."
     },
-    timelineTitle: "Every development stage, from room core to P2.",
+    timelineTitle: "Every development stage, from room core to pre-release.",
     developmentTimeline: [
+      {
+        date: "1 October 2026",
+        title: "First public teaser published",
+        body: "Multiplayer AI was shown publicly for the first time through a pre-release LinkedIn teaser while the product remains in final pre-launch preparation."
+      },
+      {
+        date: "29 September – 1 October 2026",
+        title: "Fresh-account onboarding and runtime connection polish",
+        body: "The onboarding flow was rebuilt around readiness checks, workspace creation, room creation, agent connection, first work, and final readiness, with resume state and live transitions hardened. Runtime detection and connection flows were refined around the public macOS experience."
+      },
+      {
+        date: "30 September 2026",
+        title: "Hermes and Codex CLI become the first public runtimes",
+        body: "The public runtime model was simplified around existing signed-in local runtimes, with Hermes and Codex CLI connectable today and broader runtime support, including Claude Code, OpenClaw, ChatGPT, Grok, and Meta AI / Muse, continuing in development."
+      },
+      {
+        date: "28–30 September 2026",
+        title: "Ownership, permissions, and agent movement hardened",
+        body: "Shared-room ownership, admin and contributor permissions, atomic agent moves, mentions, unread state, notifications, account deletion, and release security were hardened across the final P1/P2 work."
+      },
+      {
+        date: "25–28 September 2026",
+        title: "Release hygiene, signed macOS distribution, and reliability",
+        body: "Added public-tree and artifact sanitation, one fail-closed release path for signed, notarized, stapled, and Gatekeeper-accepted macOS builds, and reliability hardening for stop, resume, reconnect, and crash recovery."
+      },
       {
         date: "25 September 2026",
         version: "v2.0.1",
@@ -492,6 +517,26 @@ var PROJECTS = [
   Updates — working log, newest first.
 */
 var UPDATES = [
+  {
+    date: "2026-10-01",
+    title: "Multiplayer AI is shown publicly for the first time",
+    body: "Published the first pre-release teaser for Multiplayer AI on LinkedIn as the product moves toward its first official public release. It has not officially launched yet."
+  },
+  {
+    date: "2026-10-01",
+    title: "Fresh-account onboarding reaches release-candidate quality",
+    body: "Readiness checks, workspace creation, room creation, agent connection, first work, and resume behavior were brought together into the guided macOS onboarding flow."
+  },
+  {
+    date: "2026-09-30",
+    title: "Hermes and Codex CLI become the first supported public runtimes",
+    body: "The public runtime experience now focuses on existing signed-in local agents, starting with Hermes and Codex CLI while broader support remains in development."
+  },
+  {
+    date: "2026-09-29",
+    title: "Room ownership, roles, and atomic agent moves",
+    body: "Rooms gained one owner with admin and contributor roles and per-person sharing permission. Moving an agent between rooms became one server transition the Mac follows and resumes, preserving the agent's identity."
+  },
   {
     date: "2026-09-25",
     version: "v2.0.1",
